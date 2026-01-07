@@ -1,29 +1,43 @@
+// Health.cs
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    public float currentHealth;
+    public int maxHP = 100;
+    public int currentHP;
 
-    private void Start()
+    [System.Serializable]
+    public class HealthEvent : UnityEvent<int, int> { }
+    public HealthEvent onHealthChanged;
+
+    private void Awake()
     {
-        currentHealth = maxHealth;
+        currentHP = maxHP;
+        onHealthChanged?.Invoke(currentHP, maxHP);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log($"{gameObject.name} HP: {currentHealth}");
+        currentHP -= damage;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+        onHealthChanged?.Invoke(currentHP, maxHP);
 
-        if (currentHealth <= 0)
+        if (currentHP <= 0)
         {
             Die();
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHP += amount;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+        onHealthChanged?.Invoke(currentHP, maxHP);
+    }
+
     void Die()
     {
-        Debug.Log($"{gameObject.name} ¦º¤`");
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

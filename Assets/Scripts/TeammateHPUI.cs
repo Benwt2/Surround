@@ -4,17 +4,20 @@ using UnityEngine.UI;
 public class TeammateHPUI : MonoBehaviour
 {
     public Slider slider;
-    public TeammateHealth Health;
+    public Health health;
 
     void Start()
     {
-        slider.maxValue = Health.maxHP;
-        slider.value = Health.currentHP;
+        slider.maxValue = health.maxHP;
+        slider.value = health.currentHP;
+
+        health.onHealthChanged.AddListener(UpdateHP);
     }
 
-    void Update()
+    void UpdateHP(int current, int max)
     {
-        slider.value = Health.currentHP;
+        slider.maxValue = max;
+        slider.value = current;
     }
 }
 

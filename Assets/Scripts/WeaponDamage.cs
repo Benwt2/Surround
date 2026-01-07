@@ -1,19 +1,19 @@
+﻿// WeaponDamage.cs
 using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
-    public float damage = 10f;
+    public int damage = 10;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        Health health = other.GetComponent<Health>();
+        if (health != null)
         {
-            Health health = other.GetComponent<Health>();
-            if (health != null)
-            {
-                health.TakeDamage(damage);
-            }
+            health.TakeDamage(damage);
         }
     }
 }
+
+
 

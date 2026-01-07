@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 298165218801438529}
   - component: {fileID: 2419780551845804229}
   - component: {fileID: 9028232074539860627}
-  - component: {fileID: 9215266859303765899}
-  - component: {fileID: -3325217135293549006}
+  - component: {fileID: 4793676323318883338}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -135,7 +134,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9215266859303765899
+--- !u!114 &4793676323318883338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,19 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff683e3f0c5329b438362e6b35c4838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
-  attackCooldown: 1
---- !u!114 &-3325217135293549006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498780561606561944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b586c65a04533a43a7f44e51fcaada3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  currentHealth: 0
+  attackDamage: 5
+  attackInterval: 1.5

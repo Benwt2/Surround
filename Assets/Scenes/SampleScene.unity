@@ -132,13 +132,11 @@ GameObject:
   - component: {fileID: 129829692}
   - component: {fileID: 129829691}
   - component: {fileID: 129829696}
-  - component: {fileID: 129829700}
-  - component: {fileID: 129829695}
-  - component: {fileID: 129829699}
   - component: {fileID: 129829698}
+  - component: {fileID: 129829697}
   m_Layer: 0
   m_Name: teammate
-  m_TagString: teammate
+  m_TagString: Teammate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,19 +233,6 @@ Transform:
   - {fileID: 515600323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &129829695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129829690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc343ab18dcf6a54f805b46740fd966e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveRadius: 10
 --- !u!195 &129829696
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -270,34 +255,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &129829698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129829690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff455c3638eaa7e4c94a694474ff43fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPivot: {fileID: 515600323}
---- !u!114 &129829699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129829690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d9c54daedd09f4f8a229d9925b6216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 0
---- !u!114 &129829700
+--- !u!114 &129829697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -309,8 +267,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b586c65a04533a43a7f44e51fcaada3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  maxHP: 100
+  currentHP: 0
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &129829698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129829690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc343ab18dcf6a54f805b46740fd966e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRadius: 10
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 364787249}
-  Health: {fileID: 129829699}
+  health: {fileID: 129829697}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,9 +692,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefabs:
-  - {fileID: 911690781}
-  - {fileID: 1359921253}
-  spawnRange: {x: 2.5, y: 2.5}
+  - {fileID: 1802004796091554340, guid: 16f2f0c313ffd7e41a087ef47a708d34, type: 3}
+  - {fileID: 8953305583046684875, guid: 26698da835dcc9841914ced57115858b, type: 3}
+  spawnRange: {x: 8, y: 8}
   spawnInterval: 5
 --- !u!1 &515600322
 GameObject:
@@ -1046,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 1802004796091554340, guid: 16f2f0c313ffd7e41a087ef47a708d34, type: 3}
-  targetSlot: {fileID: 129829698}
+  targetSlot: {fileID: 0}
 --- !u!4 &1008863877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8018627676760466179, guid: 16f2f0c313ffd7e41a087ef47a708d34, type: 3}
@@ -1085,7 +1059,7 @@ RectTransform:
   m_Father: {fileID: 1646684750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1215,7 +1189,6 @@ GameObject:
   - component: {fileID: 1359921257}
   - component: {fileID: 1359921256}
   - component: {fileID: 1359921255}
-  - component: {fileID: 1359921260}
   m_Layer: 0
   m_Name: Heart_Pickup
   m_TagString: Untagged
@@ -1339,20 +1312,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1359921260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359921253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71e585711191fc4c989f90601c7a62a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healAmount: 20
-  teammateHealth: {fileID: 129829699}
 --- !u!1 &1448998250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1610593090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,6 +1511,7 @@ GameObject:
   - component: {fileID: 1942563290}
   - component: {fileID: 1942563289}
   - component: {fileID: 1942563288}
+  - component: {fileID: 1942563295}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1688,12 +1648,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1942563295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942563287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff455c3638eaa7e4c94a694474ff43fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPivot: {fileID: 515600323}
 --- !u!1 &1991736263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7498780561606561944, guid: 2add789b3c9accb43a62e3ef14a1bd5c, type: 3}
   m_PrefabInstance: {fileID: 7677693240930205113}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1991736270
+--- !u!114 &1991736264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1705,8 +1678,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b586c65a04533a43a7f44e51fcaada3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  maxHP: 100
+  currentHP: 0
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1991736265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991736263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff683e3f0c5329b438362e6b35c4838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  attackInterval: 1.5
 --- !u!1 &2147412792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,7 +1891,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6237656648687555083, guid: 26698da835dcc9841914ced57115858b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2033,7 +2024,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7498780561606561944, guid: 2add789b3c9accb43a62e3ef14a1bd5c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1991736270}
+      addedObject: {fileID: 1991736265}
+    - targetCorrespondingSourceObject: {fileID: 7498780561606561944, guid: 2add789b3c9accb43a62e3ef14a1bd5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1991736264}
   m_SourcePrefab: {fileID: 100100000, guid: 2add789b3c9accb43a62e3ef14a1bd5c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2046,10 +2040,10 @@ SceneRoots:
   - {fileID: 7677693240930205113}
   - {fileID: 1448998252}
   - {fileID: 1942563293}
-  - {fileID: 129829694}
   - {fileID: 480699493}
   - {fileID: 1359921259}
-  - {fileID: 911690787}
   - {fileID: 97060010160348970}
   - {fileID: 801640218}
   - {fileID: 1610593093}
+  - {fileID: 129829694}
+  - {fileID: 911690787}
